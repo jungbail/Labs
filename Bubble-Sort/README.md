@@ -137,7 +137,7 @@ As you write the bubble sort, make sure to comment on each line what it is doing
 
 1. Bubble sort is $O(n^2)$. Looking at the algorithm can you explain to your group why that is?
     Besause, we have n number, buble sort will scan n run, and in each run use other n run to swap each number. So is n * n;
-    Bubble sort also consists of 2 nested loops, so for each iteration of the outer loop, there is an additional inner loop. So each
+    Bubble sort also consists of 2 nested loops, so for each iteration of the outer loop, there is an additional inner loop(because we are comparing each item to the rest of the list). So for each item we go through, we will loop through the rest of the list and as the input grows, the number of times the inner loop runs grows, resulting in n^2 operations. 
 2. Can you come up with an array that will generate the "worst case"? 
     A backwards array (or inversly sorter)
 3. Can you come up with an array that will generate the "best case"?
@@ -185,6 +185,9 @@ Work each one out on paper - similar to how you did for the 5 value array above 
 
 Lastly, work on leet code practice. Everyone pick a different problem, and take turns explaining your solution *as* you work through the code (as time allows). This is called "live coding" and often required in technical interviews. Moving forward, we would like you to emphasize the explaining of code as you work through it, to better prepare you for technical interviews. You should also discuss one of the technical interview questions as a group. 
 
+"Explain the difference between Git and GitHub. Further, explain the concept of version control and how it can help with collaboration in software development."
+Answer - Git is a version control system, use track and manage code. and Github is webside to save those git and provides collaboration features.
+Reference Link: https://www.geeksforgeeks.org/git/difference-between-git-and-github/
 
 ## 📚 Resources
 * [Bubble Sort on Wikipedia](https://en.wikipedia.org/wiki/Bubble_sort)
