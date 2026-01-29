@@ -20,6 +20,20 @@
 void bubbleSortIntegers(int *array, unsigned int size, int print)
 {
    // TODO implement
+   if(array == NULL || size < 2){
+    return;
+   }
+
+   for(unsigned int i = 0; i < size; i++){
+        for(unsigned int j = 0; j < size - 1 - i; j++){
+            if(array[j] > array[j + 1]){
+                swap(&array[j], &array[j + 1]);
+                printIntArray(array, size);
+            }
+            
+        }
+        
+   }
 }
 
 // provided code 
