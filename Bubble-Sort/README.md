@@ -2,6 +2,7 @@
 Attendance:
 Bailey Jung
 Oksana Pooley
+Tasnia Bhuiyan- late
 
 For this activity you will be writing a simple bubble sort, while discussing about sorts and BigO. A bubble sort is one of three sorts we will write this module, with the other two also being quadratic ($O(n^2)$) sorts: insertion and selection.  While the code during this workshop will be done as a group, you will use the code from your lab directly in your weekly assignment. 
 
@@ -135,10 +136,16 @@ While bubble sort is well documented you should try writing it, talking it throu
 As you write the bubble sort, make sure to comment on each line what it is doing and why. Bubble sore is well documented, so it is more important that you understand the why than coming up with a creative solution. 
 
 1. Bubble sort is $O(n^2)$. Looking at the algorithm can you explain to your group why that is?
+    Besause, we have n number, buble sort will scan n run, and in each run use other n run to swap each number. So is n * n;
+    Bubble sort also consists of 2 nested loops, so for each iteration of the outer loop, there is an additional inner loop. So each
 2. Can you come up with an array that will generate the "worst case"? 
+    A backwards array (or inversly sorter)
 3. Can you come up with an array that will generate the "best case"?
+    An already sorted array from smallest to largest number.
    * By default, the best case is the same, but can you optimize it?
+    Have a break-out option once the numbers are ordered properly so that the time is not wasted with continued checking.a
    * Given the example above, optimize it so it stops running after the array is sorted? 
+   
      * The optimized version is more common, and gives us the "best case".
 
 

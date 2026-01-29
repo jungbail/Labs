@@ -23,16 +23,22 @@ void bubbleSortIntegers(int *array, unsigned int size, int print)
    if(array == NULL || size < 2){
     return;
    }
-
+   int check = 0;
    for(unsigned int i = 0; i < size; i++){
+    check = 0;
         for(unsigned int j = 0; j < size - 1 - i; j++){
             if(array[j] > array[j + 1]){
                 swap(&array[j], &array[j + 1]);
                 printIntArray(array, size);
+                check = 1;
             }
-            
+
+            printIntArray(array, size); 
         }
-        
+        printIntArray(array, size);
+        if(check == 0){
+            break;
+            }
    }
 }
 
