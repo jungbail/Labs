@@ -1,6 +1,7 @@
 # Team Activity - Sorting (Part 1)
 Attendance:
 Bailey Jung
+Oksana Pooley
 
 For this activity you will be writing a simple bubble sort, while discussing about sorts and BigO. A bubble sort is one of three sorts we will write this module, with the other two also being quadratic ($O(n^2)$) sorts: insertion and selection.  While the code during this workshop will be done as a group, you will use the code from your lab directly in your weekly assignment. 
 
