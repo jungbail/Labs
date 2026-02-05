@@ -49,8 +49,22 @@ void selectionSortIntegers(int *array, unsigned int size, int print)
 void insertionSortIntegers(int *array, unsigned int size, int print)
 {
     // TODO: Implement insertion sort
- 
-
+    if(size < 2){
+        if(print){
+            printIntArray(array, size);
+        }
+        return;
+    }
+    for(unsigned int i = 1; i < size; i++) {
+        for(int j = i; j > 0; j--){
+            if(array[j] < array[j - 1]){
+                swap(&array[j], &array[j - 1]);
+            }
+        }
+        if (print) {
+            printIntArray(array, size);
+        }
+    }
 }
 
 /** Code for Bubble Sort (from Lab -if not compiling, comment out the internals, but leave the function definition) ***/
@@ -69,7 +83,16 @@ void insertionSortIntegers(int *array, unsigned int size, int print)
 void bubbleSortIntegers(int *array, unsigned int size, int print)
 {
     // code generated from lab
-
+    for(unsigned int i = 0; i < size; i++){
+        for(unsigned int j = 0; j < size - 1; j++){
+            if(array[j] > array[j + 1]){
+                swap(&array[j], &array[j + 1]);
+            }
+        }
+        if(print){
+            printIntArray(array, size);
+        }
+    }
 }
 
 // ** You will work on merge sort during the lab on Module 06 ** //
@@ -79,17 +102,44 @@ void bubbleSortIntegers(int *array, unsigned int size, int print)
 // Second subarray is arr[m+1..r]
 void merge(int arr[], int temp[], int l, int m, int r)
 {
+    //if arr is NULL or temp is NULL, end this function.
     if (arr == NULL || temp == NULL)
     {
         exit(1);
     }
 
+    //Invalid rang ckeck.
     if (l > m || m + 1 > r)
         return;
 
+    // i mean index for left to mid sorted subarray.
+    // j mean index for mid + 1 right sorted subarray.
     int i = l;
     int j = m + 1;
     int start = l;
+
+    //Marge if i <= mid or j <= right.
+    // Compare current element array left and arr right.
+    while(i <= m && j <= r){
+        if(arr[i] <= arr[j]){
+            temp[start++] = arr[i++];
+        }
+        else{
+            temp[start++] = arr[j++];
+        }
+    }
+
+    // if there still has remaining element, just copy them.
+    while(i <= m){
+        temp[start++] = arr[i++];
+    }
+    while(j <= r){
+        temp[start++] = arr[j++];
+    }
+
+    for(int k = l; k <= r; k++){
+        arr[k] = temp[k];
+    }
 }
 
 // To be built during week 6 lab
@@ -103,18 +153,26 @@ void merge(int arr[], int temp[], int l, int m, int r)
 // Output: No value is returned, but 'array' should be modified to store a sorted array of numbers.
 void merge_sort(int arr[], int temp[], int l, int r)
 {
-   
+    if (l == r){ // if l = r then array is only 1 vaule long
+        return; 
+    }  // if there is more than one element
+
+        int mid = (l + r) / 2; //find the middle
+        merge_sort(arr, temp, l, mid); //recursivley call merge sort again on the left half
+        merge_sort(arr, temp, mid+1,r); //recursivley call merge sort again on the right half
+
+        merge(arr,temp, l, mid, r); //merge two sorted halves together
 }
 
 // lab build, merge sort
 
 void mergeSortIntegers(int *array, unsigned int size, int print)
 { // print is ignored for this one
-    if (array == NULL)
+    if (array == NULL) //If array is empty exit
     {
         exit(1);
     }
-    if (size <= 1)
+    if (size <= 1) //If array is 
         return;
 
     int *temp = (int *)malloc(sizeof(int) * size);
