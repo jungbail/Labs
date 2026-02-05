@@ -1,3 +1,9 @@
+Attendance:
+MinHsun Hsieh
+Bailey Jung
+Tasnia Bhuiyan
+Oksana Pooley
+
 # Lab- Sorting Part 2: Merge Sort
 
 > [!IMPORTANT]
@@ -44,9 +50,11 @@ mergeSort(arr[], temp[], l,  r):
 
 ### Discussion
 
-1. Given the pseudo code: is merge sort an [in-place algorithm]? Why or why not?
+1. Given the pseudo code: is merge sort an [in-place algorithm]? Why or why not? 
+Requires a temporary array. Reading and writing over the same range of array will overwrite, hence the need for an auxiliary array. 
 
 
+Not, because the normal merge sort need an addition staging array to hold the merge result during the merge process.
 ## MergeSort
 In sorts.h, find `merge_sort(int arr[], int temp[], int l, int r)`. This is your primary of two functions you will want to implement. 
 
@@ -111,6 +119,71 @@ In the end, you end up with 3 while loops (not nested!).
 
 ### Discuss and Build
 Work together with your partners to build the merge function. While the code is provided online, it is important to understand each step, so take piece of paper out and draw samples.  Comment in the code with your understanding.
+```mermaid
+flowchart TB
+ A[10 9 8 7 6 5 4 3 2 1 0]
+
+    A --> B[10 9 8 7 6 5]
+    A --> C[4 3 2 1 0]
+
+    B --> D[10 9 8]
+    B --> E[7 6 5]
+
+    C --> F[4 3 2]
+    C --> G[1 0]
+
+    D --> H[10 9]
+    D --> I[8]
+
+    E --> J[7 6]
+    E --> K[5]
+
+    F --> L[4 3]
+    F --> M[2]
+
+    G --> N[1]
+    G --> O[0]
+
+    H --> P[10]
+    H --> Q[9]
+
+    J --> R[7]
+    J --> S[6]
+
+    L --> T[4]
+    L --> U[3]
+
+    P --> V[9 10]
+    Q --> V
+
+    R --> W[6 7]
+    S --> W
+
+    T --> X[3 4]
+    U --> X
+
+    V --> Y[8 9 10]
+    I --> Y
+
+    W --> Z[5 6 7]
+    K --> Z
+
+    X --> AA[2 3 4]
+    M --> AA
+
+    Z --> AB[5 6 7 8 9 10]
+    Y --> AB
+
+    AA --> AC[0 1 2 3 4]
+    N --> AC
+    O --> AC
+
+    AB --> AD[0 1 2 3 4 5 6 7 8 9 10]
+    AC --> AD
+```
+
+In the dataset {10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0}, the l = 0 and the r = 10. The mid point will be 5. The first split will be from 0-5{10, 9, 8, 7, 6, 5} and 6-10{4, 3, 2, 1, 0}. We will continue splitting until all the sub arrays have reach a size of 1. Then, in the reverse order we split the elements, we begin comparing the integers and merging them back in order. We do this until the entire array is merged back and is now sorted. 
+
 
 > **Challenging**:  
 > The merge sort is a challenging algorithm, that looks simple after it is completed. It is why we are doing it in a group, and you are free to use online resources if you get stuck. Just make sure you **understand** what is going on.
@@ -123,7 +196,24 @@ Work together with your partners to build the merge function. While the code is 
 > so it doesn't mess up your homework output. 
 
 ## Other Sorts?
-Take time to search additional sorts online (there are a *ton* of them). Each person should find a sort, and describe to the group what situations it is best used for. Even better if you can find a visualization for that sort. 
+Take time to search additional sorts online (there are a *ton* of them). Each person should find a sort, and describe to the group what situations it is best used for. Even better if you can find a visualization for that sort.  
+
+**Anam: Selection Sort:** This sort repeatedly scans the list to find the smallest element and swaps it into the correct position at the front, growing a sorted section one item at a time. It's simple and uses very litle extra memory, but it's inefficient for large data sets because it always runs in quadratic time. 
+https://www.geeksforgeeks.org/dsa/sorting-algorithms/
+
+
+Bailey - 3-way merge sort: This merge sort works similarly to merge sort but in stead of breaking in half it breaks the array into thirds. The goal of this is to reduce the depth of the recursion. https://www.geeksforgeeks.org/dsa/3-way-merge-sort/
+
+Tasnia: Quick sort is an efficient sorting algorithm. It works by picking a pivot(usually at the beginning, middle or end of the input or a random element). It then rearranges the array around the pivot where everything to the left of the pivot is smaller and to the right is larger. It then recursively  calls this process on each subarray to the right and left. We stop when there is only one element left in the subarrays and everything is now sorted. 
+Quick sort is an in place sorting and doesn't need much extra memory. This makes it efficient for large data sets where you need high memory efficiency; as a result, it is best in databases and libraries. https://www.geeksforgeeks.org/dsa/quick-sort-algorithm/
+
+MinHsun - Bucket Sort is ok b distributing elements of an array into a number of "Buckeets", which are then sorted individually and concatted to produce the final sorted array.
+Here is Link: https://www.simplilearn.com/tutorials/data-structure-tutorial/bucket-sort-algorithm
+
+Oksana: Heap Sort is an interesting one. https://www.geeksforgeeks.org/dsa/heap-sort/
+It is an in-place sort that is used when memory space is of the essence. 
+It works by organizing data in nodes, then switching the children notes and the parents, so that the higher value is at the top.  The largest element is then removed from the heap (the root of the heap), and placed at the start of the array. The result is a sorted array.
+
 
 
 ## Technical Interview Practice
@@ -133,6 +223,7 @@ Lastly, work on leet code practice. Everyone pick a different problem, and take 
 ## 📚 Resources
 * [Merge Sort on Khan](https://www.khanacademy.org/computing/computer-science/algorithms/merge-sort/a/divide-and-conquer-algorithms)
 * [Merge Sort Video](https://www.youtube.com/watch?time_continue=1&v=JSceec-wEyw)
+* [Bucket Sort] (https://www.simplilearn.com/tutorials/data-structure-tutorial/bucket-sort-algorithm)
 
 
 
