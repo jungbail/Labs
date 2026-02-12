@@ -1,5 +1,12 @@
 # Dynamic Programming
 
+Attendance: 
+Bailey Jung
+Oksana Pooley
+MinHsun Hsieh
+Tasnia Bhuiyan
+Anam Shamsi 
+
 In this activity we will explore dynamic programming. It is a fancy term, often taught in overly mathematical ways to say:
 
 > If we already calculated an answer, save it, so we don't have to calculate it again!
