@@ -118,10 +118,14 @@ time: 0.000005(1013)
 Both will run relatively quickly, but if you increase your number to ~35, you will see a noticeable increase in time to finish for the recursive version as compared to the iterative solution. You can also see the number of operations each algorithm is doing (roughly) by looking at the value in the parenthesis. As such, the iterative has 55 operations and the recursive has 1013 operations.
 
 👉🏽 **Task**: Discuss the following together:
-* What is the Big O for each version, and 
+* What is the Big O for each version, and  
+   Recursive: $O(2^n)$  
+   Iterative: $O(N^2)$  
+   Dynamic: $O(n^2)$   
+   
 * What are observations about the code? 
-  * For example, why use uint64 -what does that even mean!? 
-  * Why use typedef? 
+  * For example, why use uint64 -what does that even mean!? uint64 is unsigned integer,which mean it can upper the limited.
+  * Why use typedef?  typedef is a keyword that is used to provide existing data types with a new name.
 * You can also look up solutions online (there are a plenty of them) and discuss what you find.   
 
 
@@ -156,6 +160,7 @@ python test_runner.py 4000
 Review the script and make sure everyone in the team activity fully understands what is going on! (Hint you may end up using something similar for your midterm project).
 
 👉🏽 **Task**: Use either the provided CSV data, or data you generate to build a line graph comparing the various speeds (note you  may need to build separate line graphs for a better comparison). Discuss with your team. 
+![BigO_graph-InLogScale.png](BigO_graph-InLogScale.png)
 
 
 ## Thinking Deeper
