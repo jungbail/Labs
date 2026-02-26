@@ -4,7 +4,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-// TODO: Create your node_t type here
 typedef struct node
 {
     int num_wins;
@@ -58,19 +57,40 @@ void add_back(NeuList *list, int wins, int year) {
 
 void print_list(NeuList *list)
 {
-    // todo
+    Pair *current = list->head;
+    while(current != NULL){
+        if(current->next != NULL){
+        printf("(%d, %d) -> ", current->num_wins, current->year);
+        }
+        else{
+            printf("(%d, %d)\n", current->num_wins, current->year);
+        }
+        current = current->next;
+    }
 }
 
 Pair *find(NeuList *list, int year)
 {
-    // todo
-    return NULL;
+    Pair* current = list->head;
+    while(current != NULL){
+        if(current->year == year){
+            return current;
+        }
+        current = current->next;
+    }
+    return NULL; // Not find.
 }
 
 
 void free_list(NeuList *list)
 {
-    // todo
+    Pair* current = list->head;
+    while(current != NULL){
+            Pair* nextNode = current->next;
+            free(current);
+            current = nextNode;
+    }
+    free(list);
 }
 
 #endif //LINKED_LIST_H

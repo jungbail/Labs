@@ -1,4 +1,7 @@
-# Team Learning Activity
+# Team Learning Activity  
+Attendance:
+
+MinHsun Hsieh, Bailey Jung, Oksana Pooley, Tasnia Bhuiyan Anam Shamsi 
 
 Whenever you need to quickly add and remove items, but those items are always in order - a Linked List is a good option for the data structure. In this Lab, we will explore a **Singly Linked List**. You will then use this linked list as the foundation for your homework. 
 
@@ -48,8 +51,8 @@ int main() {
    return 0;
 }
 ```
+![simpleLinkedList](simpleLinkedList.png)
 
-In addition the the memory diagram you draw, a way you can show a linked list is the following:
 
 ```mermaid
 graph LR
@@ -65,8 +68,13 @@ graph LR
 
 Take a look at [linkedlist.h](linkedlist.h). Describe what you see and notice. Pay attention to the `push_front` and `add_back` functions. In your own words, describe to each other what each function does. 
 
+>Answer: It looks like push_front handles adding a node to the front of the list. It creates a new node, points it's next pointer to the current head of the list and then points the head of the list to the new list. Lastly, it increments the size.
+Add_back handles adding a node to the end of the list. It first creates a new node. If the list is empty, it just makes the new node the head of the list. If not, while the current node has a next node, it iterates through the list until it reaches the end. When it does, it points the next of the last node of the list to the new node and increments the list size. 
+ 
 #### Drawing Push Front
 Using a similar drawing to the list above, draw out what happens when you call `push_front`. The important part is to help understand the order of the code, and what happens to the pointers.
+ > Anam will insert mermaid or drawing here
+
 
 
 ### Iterating over a Linked List
