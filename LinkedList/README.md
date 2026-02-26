@@ -1,7 +1,7 @@
 # Team Learning Activity  
 Attendance:
 
-MinHsun Hsieh, Bailey Jung, Oksana Pooley, Tasnia Bhuiyan Anam Shamsi 
+MinHsun Hsieh, Bailey Jung, Oksana Pooley, Tasnia Bhuiyan, Anam Shamsi 
 
 Whenever you need to quickly add and remove items, but those items are always in order - a Linked List is a good option for the data structure. In this Lab, we will explore a **Singly Linked List**. You will then use this linked list as the foundation for your homework. 
 
@@ -73,12 +73,30 @@ Add_back handles adding a node to the end of the list. It first creates a new no
  
 #### Drawing Push Front
 Using a similar drawing to the list above, draw out what happens when you call `push_front`. The important part is to help understand the order of the code, and what happens to the pointers.
- > Anam will insert mermaid or drawing here
 
+```mermaid
+graph LR
+    HEAD --> A["10, 2005"]
+    A --> B["20, 2006"]
+    B --> C["30, 2007"]
+    C --> NULL
+    NEW["5, 2004"] --> A
+```
 
 
 ### Iterating over a Linked List
 As a group, write a function the iterates over the list, and prints out the values. The above list would look like the following:
+```c
+
+Node *current = list->head;
+while(current != NULL) {
+    if(current->)
+    current = current->next;
+}
+return current;
+
+```
+
 
 ```text
 (10, 2005) -> (20, 2006) -> (30, 2007) -> (40, 2008) 
@@ -106,6 +124,7 @@ So far, the program has a major error. The memory is not being freed! Write a fu
 
 As a group, discuss how you would insert and remove an item in the middle of the list. Draw out how that would look with pointers.  
 
+Added to linkedlist.h
 
 ## Part 2: Stack and Queue
 

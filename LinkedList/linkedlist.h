@@ -93,4 +93,59 @@ void free_list(NeuList *list)
     free(list);
 }
 
+void isEmpty(NeuList *list){
+    return list->size == 0;
+}
+
+
+void findNode(NeuList *list, size_t index){
+    if(index >= list->size) return NULL;
+    int count = 0;
+    Pair* curr = list->head;
+    while(count != index){
+        curr = curr->next;
+        count++;
+    }
+    return curr;
+}
+
+void insert_element(NeuList *list, size_t index, int win, int year){
+    if(list == NULL ||index > list->size){
+        return;
+    }
+    
+    Pair* new_node = new_node(win, year, list->head);
+
+    if(index == 0){
+        new_node->next = list->head;
+        list->head = new_node;
+    } else {
+        Pair* prev = findNode(NeuList *list, size_t index); 
+        if(prev != NULL){
+            new_node -> next = prev -> next;
+            prev -> next = new_node;
+        }else{
+            free(new_node);
+            return;
+        }
+    } 
+    list -> size++;
+}
+
+void remove_element(NeuList *list, size_t index){
+    if(index == 0){
+        Pair* save  = list->head;
+        list->head = save->next;
+        free(save);
+    }
+    Pair* pre = findNode(list, index - 1);
+    Pair* cur = pre->next;
+    pre->next = cur->next;
+    free(cur);
+    list->size--;
+}
+
+#endif //LINKED_LIST_H
+}
+
 #endif //LINKED_LIST_H

@@ -11,7 +11,7 @@ int main()
     // TODO: Build a list with the above data, use add_back. 
     NeuList* list = create_list();
     for(int i = 0; i < 5; i++){
-        add_back(list, test_winswins[i], test_yearsyears[i]);
+        add_back(list, test_wins[i], test_years[i]);
     }
 
 
