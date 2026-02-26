@@ -6,7 +6,8 @@
 int main(int argc, char const *argv[])
 {
     // Wite your code here to practice reading a file (name passed in via program args)    
-    // and contents printed to the screen as you read it. 
+    // and contents printed to the screen as you read it.
+
     
     return 0;
 }

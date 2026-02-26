@@ -137,6 +137,7 @@ void merge(int arr[], int temp[], int l, int m, int r)
         temp[start++] = arr[j++];
     }
 
+    // Copy the merge result.
     for(int k = l; k <= r; k++){
         arr[k] = temp[k];
     }
@@ -153,10 +154,9 @@ void merge(int arr[], int temp[], int l, int m, int r)
 // Output: No value is returned, but 'array' should be modified to store a sorted array of numbers.
 void merge_sort(int arr[], int temp[], int l, int r)
 {
-    if (l == r){ // if l = r then array is only 1 vaule long
+    if (l == r){ // base case (stop making smaller blocks to be merged when the blocks reach size 1)
         return; 
-    }  // if there is more than one element
-
+    } 
         int mid = (l + r) / 2; //find the middle
         merge_sort(arr, temp, l, mid); //recursivley call merge sort again on the left half
         merge_sort(arr, temp, mid+1,r); //recursivley call merge sort again on the right half
@@ -172,12 +172,12 @@ void mergeSortIntegers(int *array, unsigned int size, int print)
     {
         exit(1);
     }
-    if (size <= 1) //If array is 
+    if (size <= 1) //If size is less than or = to 1 list does not need to be sorted return 
         return;
 
-    int *temp = (int *)malloc(sizeof(int) * size);
-    merge_sort(array, temp, 0, size - 1);
-    free(temp);
+    int *temp = (int *)malloc(sizeof(int) * size); //Allocate space in memory for sorted array
+    merge_sort(array, temp, 0, size - 1); //pass in initial array, pointer space in memory to work with, and start and end
+    free(temp); //free extra memory when completed
 }
 
 // provided code 

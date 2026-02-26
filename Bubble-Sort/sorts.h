@@ -29,13 +29,11 @@ void bubbleSortIntegers(int *array, unsigned int size, int print)
         for(unsigned int j = 0; j < size - 1 - i; j++){
             if(array[j] > array[j + 1]){
                 swap(&array[j], &array[j + 1]);
-                printIntArray(array, size);
                 check = 1;
             }
 
-            printIntArray(array, size); 
         }
-        printIntArray(array, size);
+
         if(check == 0){
             break;
             }
