@@ -169,19 +169,18 @@ In your group, discuss the following questions:
 Also for the tree:
 * Define a Binary Search Tree. Write out the steps to add a node to a Binary Search Tree, and use a [gnomes_names.txt](gnomes_names.txt) file to draw out the tree that is a BST format. 
 
-  graph TD  
-  Rielkick -->left: Gnirweet
-  Rielkick -->right: Tinbap
-  Gnirweet -->left: Callbip
-  Gnirweet -->right: Luknekut
-  Callbip -->left: NULL
-  Callbip -->right: Cyddnum
-  Cyddnum -->right: NULL
-  Cyddnum -->left: Cisopnort
-  Cisopnort -->left: Cienerbur
-  Cisopnort -->right: Cononsbass
-  Tinbap -->right: Wenzibist
-  Tinbap -->left: NULL
+| Node       | Left Child | Right Child |
+| ---------- | ---------- | ----------- |
+| Rielkick   | Gnirweet   | Tinbap      |
+| Gnirweet   | Callbip    | Luknekut    |
+| Callbip    | NULL       | Cyddnum     |
+| Cyddnum    | Cisopnort  | NULL        |
+| Cisopnort  | Cienerbur  | Cononsbass  |
+| Tinbap     | NULL       | Wenzibist   |
+| Luknekut   | NULL       | NULL        |
+| Cienerbur  | NULL       | NULL        |
+| Cononsbass | NULL       | NULL        |
+| Wenzibist  | NULL       | NULL        |
 
 * How many steps is needed to get to `Canonsbass` as compared to just looking line by line in the file? 
 * Discuss how you would implement a Binary Search Tree (BST) using the tree structure we have created.  
