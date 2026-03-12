@@ -1,4 +1,11 @@
 # Lab: Breadth First Search and Depth First Search on Trees
+Attendance:  
+
+- Oksana Pooley
+- Tasnia Bhuiyan
+- Anam Shamsi
+- Bailey Jung
+- MinHsun Hsieh
 
 In this activity you will explore using [Breadth First Search] and [Depth First Search] on a tree structure. 
 
@@ -16,9 +23,17 @@ In your group, review the code in [tree.h](tree.h) & [tree.c](tree.c). Explain t
 You should be able to answer the following questions:
 
 * What is the purpose of the struct?
+  Struct node is basic buiding unit of a tree, it include node->data, node->left and node->right.
+
 * What is the difference between addNode and addNodeBreadthFirst?
+  addNode finds the first free left-most spot and adds data.
+  addNodeBreadthFirst adds node in a breadth-first manner, needs a queue to keep track of locations.
+
 * Why would we need to remove `\n` in `read_file_into_tree`?
+  If we don't remove it, the node's data becomes "A\n" instead of "A". We replace it with a null terminator \0 to keep the data clean. 
+
 * How are we adding nodes to a tree? Given the file [letters.txt](letters.txt), how does the tree look like?
+        ![alt text](Tree.png)
   
 Now, review the code in [printer.c](printer.c). Explain to each other the various lines.
 You should be able to answer the following questions:
@@ -79,6 +94,31 @@ To test the other print types, replace breadthfirst with preorder, postorder, or
 ## 👉🏽 **Task** 👈🏽 - Use gnomes_names.txt
 Using the names in [gnome_names.txt](gnome_names.txt)<sup>[2]</sup>, draw out the tree structure, each of the types of prints. Then run what you think the output would be against the output of your program. This file contains 10 names, so you would end up with an unbalanced tree.
 
+```mermaid
+graph TD
+  Rielkick --> Gnirweet
+  Gnirweet --> Wenzibist
+  Gnirweet --> Luknekut
+  Rielkick --> Tinbap
+  Tinbap --> Callbip
+  Tinbap --> Cyddnum
+  Callbip --> Cisopnort
+  Callbip --> Cienerbur
+
+
+| inorder | preorder | postorder |
+|:---:|:---:|:---:|      
+ |Cisopnort | Rielkick | Cisopnort |
+ |Callbip | Tinbap | Cienerbur |
+ |Cienerbur | Callbip | Callbip |
+ |Tinbap | Cisopnort | Cononsbass |
+ |Cononsbass | Cienerbur | Cyddnum |
+ |Cyddnum | Cyddnum | Tinbap |
+ |Rielkick | Cononsbass | Wenzibist |
+ |Wenzibist | Gnirweet | Luknekut |
+ |Gnirweet | Wenzibist | Gnirweet |
+ |Luknekut | Luknekut | Rielkick |
+ 
 
 ## 👉🏽 **Task** 👈🏽 - Practicing With Larger Files
 In programming, we often need to test our code with larger files. In this case, we have a file [elf_names.txt](elf_names.txt) that contains 40 names. While this file isn't as large as some of the files we deal with in the real world, it is large to make
@@ -110,8 +150,14 @@ Try that with each of the ordering types.
 In your group, discuss the following questions:
 
 * What is the difference between a breadth first search and a depth first search?
+> BFS visits all nodes level by level using a queue, while DFS goes as deep as possible into each branch first using a stack [1]. So inorder, preorder, and postorder are all DFS since they explore sub-tree by sub-tree rather than level by level [1]. The BFS output we got is what you'd use if you wanted nodes closer to the root first, which is why it's better for shortest path problems [1].
+> 
+> [1] GeeksforGeeks, "Difference between BFS and DFS," GeeksforGeeks, Nov. 1, 2025. [Online]. Retrieved from: https://www.geeksforgeeks.org/dsa/difference-between-bfs-and-dfs/
+
 * What tasks are suited for a breadth first search?
+> BFS traverses level by level using a queue while DFS goes deep into each subtree first using a stack, which is why our inorder, preorder, and postorder traversals are all considered DFS [1].
 * What tasks are suited for a depth first search?
+>
 * Can you come up with everyday examples of inorder, postorder, and preorder? (hint, look at your calculator)
 
 Also for the tree:
