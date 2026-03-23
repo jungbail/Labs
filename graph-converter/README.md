@@ -32,15 +32,20 @@ Now, draw the graph on a piece of paper.
 
 ```mermaid
 flowchart TD
-   0(("0"))
-   1(("1"))
-   2(("2"))
-   3(("3"))
-   4(("4"))
+   0 <-- 9 --> 1 
+   0 <-- 6 --> 2
+   0 <-- 6 --> 3
+   0 <-- 4 --> 8
+   1 <-- 1 --> 2
+   1 <-- 7 --> 4
+   2 <-- 1 --> 1
+   2 <-- 8 --> 3
+   2 <-- 2 --> 4
+   3 <-- 2 --> 4
 
-   0 -->|9| 1
-   0 -->|6| 2  
-   classDef default fill:#f9f9f9,stroke:#333,stroke-width:2px;
+
+
+   
 ```
 ### Example: 
 
