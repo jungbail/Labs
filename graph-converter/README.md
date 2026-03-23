@@ -144,7 +144,7 @@ Adjacency Matrix:
 6 6 8 0 0   
 7 1 0 4 0   
 
-
+`UNDIRECTED`
 ```mermaid
 flowchart TD
    0 -- 9 --> 1
