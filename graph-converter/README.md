@@ -35,7 +35,7 @@ flowchart TD
    0 <-- 9 --> 1 
    0 <-- 6 --> 2
    0 <-- 6 --> 3
-   0 <-- 4 --> 8
+   0 <-- 8 --> 4
    1 <-- 1 --> 2
    1 <-- 7 --> 4
    2 <-- 1 --> 1
@@ -84,6 +84,26 @@ flowchart TD
 ```
 
 👉🏽 **Task** 👈🏽: Modify the code in [adj_fun.c](adj_fun.c) to print out the graph as an adjacency matrix using `DIRECTED_ONE_DIRECTION`, `DIRECTED_UNBALANCED`, and `UNDIRECTED`. You can do this by changing the `type` variable in the `main` function. 
+`DIRECTED_ONE_DIRECTION`  
+Print out:
+Adjacency Matrix:  
+0 5 4 3 7   
+0 0 0 3 1   
+0 0 0 5 0   
+0 0 0 0 2   
+0 0 0 0 0   
+
+```mermaid
+flowchart TD
+   0 -- 5 --> 1
+   0 -- 4 --> 2
+   0 -- 3 --> 3
+   0 -- 7 --> 4
+   1 -- 3 --> 3
+   1 -- 1 --> 4
+   2 -- 5 --> 3
+   3 -- 2 --> 4
+```
 
 **FOR EACH** of the types, draw the graph on a piece of paper. Talk it through with your group.
 
