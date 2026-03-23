@@ -136,6 +136,33 @@ flowchart TD
    4 -- 8 --> 2
    4 -- 6 --> 3
 ```
+   
+Adjacency Matrix:   
+0 9 7 0 6   
+0 0 3 8 3   
+1 5 0 8 7   
+6 6 8 0 0   
+7 1 0 4 0   
+
+
+```mermaid
+0 -- 9 --> 1
+0 -- 7 --> 2
+0 -- 6 --> 4
+1 -- 3 --> 2
+1 -- 8 --> 3
+1 -- 3 --> 4
+2 -- 1 --> 0
+2 -- 5 --> 1
+2 -- 8 --> 3
+2 -- 7 --> 7
+3 -- 6 --> 0
+3 -- 6 --> 1
+3 -- 8 --> 2
+4 -- 7 --> 0
+4 -- 1 --> 1
+4 -- 4 --> 3
+```
 
 **FOR EACH** of the types, draw the graph on a piece of paper. Talk it through with your group.
 
