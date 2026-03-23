@@ -183,12 +183,22 @@ Run the program and see if the matrix matches the list. You may need to draw out
 With your group, discuss the following
 
 1. What are the pros and cons of each representation?
+   > **Pros:** 
+   > constant time access to nodes
+   >
+   > **Cons:** Matrix always need N * N space, so no matter how many edges there are, For instance, 1,000 vertices require 1,000 × 1,000 = 1 million grids.
 2. What is the space complexity of each representation?
+   > **$v^2$:** even if each vertex doesn have an edge the matrix still needs to save space for each vertex to have connections to each other vertex.
+   >
+   > **$v + e$:** The list only stores the actual edges, so space is N + E.
 3. What about time complexity of accessing a specific edge?
    * Give examples of when you would use each representation.
+   >**$O(1)$** Matrix: just use index jump to that position, such like search data[i][j], then we can get answer.
+   >**$O(degree)$** List need to search from the head, one by one untill we get the the edges we want or j == NULL.
+ * 
 4. When would you want to (or not use) each?
-
-
+   > For Matrix such lisk we necessary to quickly check on the map. 
+   > if it is often necessary to visit all the edges of a certain vertex, it should use List.
 ## Technical Interview Practice
 
 Take time practicing some of the past modules challenge problems. While you may not have time for everyone to do this, have a couple people practice "live coding". Live coding is a skill in interviews were you are asked to describe code **while** you are writing it. It can be a challenging skill, and it takes practice. I recommend that you setup a rotation of people to practice this skill within your team, ideally a couple every week. The other teams members can offer support, and then do a code review after a solution is generated. Then, as a group work a technical interview problem to discuss possible solutions.
