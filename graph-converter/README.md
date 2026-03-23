@@ -20,8 +20,28 @@ Before you work on that, review the provided code and explain to each other the 
 
 At this point, you can run `make` which will build the program. You can then run `./adj_fun.out` to run the program. You will see it will print out the graph as an adjacency matrix. 
 
+Output Print:  
+Adjacency Matrix:  
+0 9 6 6 8  
+9 0 1 0 7   
+6 1 0 8 2   
+6 0 8 0 2   
+8 7 2 2 0   
+
 Now, draw the graph on a piece of paper. 
 
+```mermaid
+flowchart TD
+   0(("0"))
+   1(("1"))
+   2(("2"))
+   3(("3"))
+   4(("4"))
+
+   0 -->|9| 1
+   0 -->|6| 2  
+   classDef default fill:#f9f9f9,stroke:#333,stroke-width:2px;
+```
 ### Example: 
 
 ```text
