@@ -105,6 +105,38 @@ flowchart TD
    3 -- 2 --> 4
 ```
 
+`DIRECTED_UNBALANCED`  
+Adjacency Matrix:  
+0 7 4 9 2   
+3 0 1 4 9   
+7 9 0 6 7   
+7 8 4 0 1   
+4 2 8 6 0   
+
+```mermaid
+flowchart TD
+   0 -- 7 --> 1
+   0 -- 4 --> 2
+   0 -- 9 --> 3
+   0 -- 2 --> 4
+   1 -- 3 --> 0
+   1 -- 1 --> 2
+   1 -- 4 --> 3
+   1 -- 9 --> 4
+   2 -- 7 --> 0
+   2 -- 9 --> 1
+   2 -- 6 --> 3
+   2 -- 7 --> 4
+   3 -- 7 --> 0
+   3 -- 8 --> 1
+   3 -- 4 --> 2
+   3 -- 1 --> 4
+   4 -- 4 --> 0
+   4 -- 2 --> 1
+   4 -- 8 --> 2
+   4 -- 6 --> 3
+```
+
 **FOR EACH** of the types, draw the graph on a piece of paper. Talk it through with your group.
 
 
