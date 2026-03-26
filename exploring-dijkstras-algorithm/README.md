@@ -1,5 +1,10 @@
 # Team Activity: Exploring Dijkstra's Algorithm
-
+Attendance:  
+MinHsun Hsieh  
+Bailey Jung  
+Tasnia Bhuiyan   
+Oksana Pooley   
+Anam Shamsi 
 
 In this team activity, you will explore Dijkstra's algorithm run time efficiency by comparing it against a version that uses a priority queue/heap, and a version that uses a list. You will also explore the effect of the graph density on the run time of Dijkstra's algorithm.
 
@@ -21,9 +26,56 @@ For this team activity, we have provided three python files.
 👉🏽 **Task** 👈🏽
 
 1. Read through the code in the provided files. Explain the various lines to each other.
-   * What is a major difference between the shortest_path functions?
+   * What is a major difference between the shortest_path functions? 
+  > shortest_path_dijkstra_heap is use Priority Queue, heapq will automatically find the minimum value. 
+   shortest_path_dijkstra is use normal List, when we need to find the minimum value, we need find out all of node. 
+   
    * Why would this matter? (We will continue to explore this throughout the team activity)
-2. In graph.py, we are creating  a small and medium graph. Take a moment and draw on the paper the visualization of the graph that those represent. 
+   > The second function is not efficient for large graphs.
+   
+1. In graph.py, we are creating  a small and medium graph. Take a moment and draw on the paper the visualization of the graph that those represent. 
+
+```mermaid
+---
+title: Small Test Graph
+---
+flowchart TD
+A <-- 1 --> B
+A <-- 1 --> C
+A <-- 1 --> D
+B <-- 1 --> E
+B <-- 1 --> F
+C <-- 1 --> F
+C <-- 1 --> G
+D <-- 1 --> G
+D <-- 1 --> H
+E <-- 1 --> F
+F <-- 1 --> G
+G <-- 1 --> H
+
+```
+
+```mermaid
+---
+title: Small Medium Graph
+---
+flowchart TD
+A <-- 1 --> B
+A <-- 1 --> C
+A <-- 1 --> D
+B <-- 1 --> E
+B <-- 1 --> F
+C <-- 1 --> F
+C <-- 1 --> G
+D <-- 1 --> G
+D <-- 1 --> H
+E <-- 1 --> F
+F <-- 1 --> G
+G <-- 1 --> H
+H <-- 1 --> I
+H <-- 1 --> J
+
+```
 
 
 ## Visualizing Dijkstra's Algorithm
@@ -49,6 +101,15 @@ def dijkstra(graph, start, end):
 ```
 👉🏽 **Task** 👈🏽
 Visualize the algorithm on the graph you drew.
+---
+title: Small Medium Graph Dijkstra
+---
+A --> B -- 1
+A --> C -- 1
+A --> D -- 1
+B --> E -- 2
+B --> F -- 2
+C -- >F -- 2 (No refr)
 
 
 You can also use the Visualization tool provided by the University of San Francisco to visualize Dijkstra's algorithm (link in the resources section). 
@@ -79,6 +140,19 @@ More importantly, you will see two tests that use timings.
 👉🏽 **Task** 👈🏽
 
 Build a table based on the timings for both run_timed_test, both with a mostly connected graph and a sparser graph. The N will vary greatly between the two. For mostly connected, a 500 node graph took about ~2 minutes. For a sparser 10,000 node graph took 18 seconds to run the entire function. This is the difference of $2n-1$ compared to up to $n^2$ edges. 
+
+| Test Case | Graph Density | N | Edge Growth | List Version Runtime | Heap Version Runtime |
+|---|---|---:|---|---:|---:|
+| 1 | Mostly Connected | 100 | up to n² | _____ | _____ |
+| 2 | Mostly Connected | 200 | up to n² | _____ | _____ |
+| 3 | Mostly Connected | 300 | up to n² | _____ | _____ |
+| 4 | Mostly Connected | 400 | up to n² | _____ | _____ |
+| 5 | Mostly Connected | 500 | up to n² | _____ | _____ |
+| 6 | Sparse | 1000 | about 2n - 1 | _____ | _____ |
+| 7 | Sparse | 2500 | about 2n - 1 | _____ | _____ |
+| 8 | Sparse | 5000 | about 2n - 1 | _____ | _____ |
+| 9 | Sparse | 7500 | about 2n - 1 | _____ | _____ |
+| 10 | Sparse | 10000 | about 2n - 1 | _____ | _____ |
 
 ### Discussion  
 
