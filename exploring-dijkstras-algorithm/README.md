@@ -101,15 +101,18 @@ def dijkstra(graph, start, end):
 ```
 👉🏽 **Task** 👈🏽
 Visualize the algorithm on the graph you drew.
----
-title: Small Medium Graph Dijkstra
----
-A --> B -- 1
-A --> C -- 1
-A --> D -- 1
-B --> E -- 2
-B --> F -- 2
-C -- >F -- 2 (No refr)
+| Iteration | Processed | dist[A] | dist[B] | dist[C] | dist[D] | dist[E] | dist[F] | dist [G] | dist[H] |
+| :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: |
+| Initial | {} | 0 | ∞ | ∞ | ∞ | ∞ | ∞ | ∞ | ∞ |
+| 1 | {A} | 0 | 1 | 1 | 1 | ∞ | ∞ | ∞ | ∞ |
+| 2 | {A,B} | 0 | 1 | 1 | 1 | 2 | 2 | ∞ | ∞ |
+| 3 | {A,B,C} | 0 | 1 | 1 | 1 | 2 | 2 | 2 | ∞ |
+| 4 | {A,B,C,D} | 0 | 1 | 1 | 1 | 2 | 2 | 2 | 2 |
+| 5 | {A,B,C,D,E} | 0 | 1 | 1 | 1 | 2 | 2 | 2 | 2 |
+| 6 | {A,B,C,D,E,F} | 0 | 1 | 1 | 1 | 2 | 2 | 2 | 2 |
+| 7 | {A,B,C,D,E,F,G} | 0 | 1 | 1 | 1 | 2 | 2 | 2 | 2 | 2 |
+| 8 | {A,B,C,D,E,F,G,H} | 0 | 1 | 1 | 1 | 2 | 2 | 2 | 2 | 2 |
+
 
 
 You can also use the Visualization tool provided by the University of San Francisco to visualize Dijkstra's algorithm (link in the resources section). 
@@ -141,18 +144,9 @@ More importantly, you will see two tests that use timings.
 
 Build a table based on the timings for both run_timed_test, both with a mostly connected graph and a sparser graph. The N will vary greatly between the two. For mostly connected, a 500 node graph took about ~2 minutes. For a sparser 10,000 node graph took 18 seconds to run the entire function. This is the difference of $2n-1$ compared to up to $n^2$ edges. 
 
-| Test Case | Graph Density | N | Edge Growth | List Version Runtime | Heap Version Runtime |
-|---|---|---:|---|---:|---:|
-| 1 | Mostly Connected | 100 | up to n² | _____ | _____ |
-| 2 | Mostly Connected | 200 | up to n² | _____ | _____ |
-| 3 | Mostly Connected | 300 | up to n² | _____ | _____ |
-| 4 | Mostly Connected | 400 | up to n² | _____ | _____ |
-| 5 | Mostly Connected | 500 | up to n² | _____ | _____ |
-| 6 | Sparse | 1000 | about 2n - 1 | _____ | _____ |
-| 7 | Sparse | 2500 | about 2n - 1 | _____ | _____ |
-| 8 | Sparse | 5000 | about 2n - 1 | _____ | _____ |
-| 9 | Sparse | 7500 | about 2n - 1 | _____ | _____ |
-| 10 | Sparse | 10000 | about 2n - 1 | _____ | _____ |
+
+
+
 
 ### Discussion  
 
