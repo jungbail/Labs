@@ -144,15 +144,40 @@ More importantly, you will see two tests that use timings.
 
 Build a table based on the timings for both run_timed_test, both with a mostly connected graph and a sparser graph. The N will vary greatly between the two. For mostly connected, a 500 node graph took about ~2 minutes. For a sparser 10,000 node graph took 18 seconds to run the entire function. This is the difference of $2n-1$ compared to up to $n^2$ edges. 
 
+| Graph Type | N |  Dijkstra's algorithm | Dijkstra's algorithm with heap |
+| Sparse | 50 |  0.0023807910038158298 | 0.0004362920008134097 |
+| Sparse | 100 |  0.0019316670077387244 | 0.0008652500109747052 |
+| Sparse | 500 |  0.035806542000500485 | 0.010052084020571783 |
+| Sparse | 1000 |  0.0806178750062827 | 0.022216750017832965 |
+| Sparse | 2000 |  0.21184200001880527 | 0.0882272080052644 |
+| Sparse | 3000 |  0.42301541700726375 | 0.19703383397427388 |
+| Sparse | 4000 |  0.7554406249837484 | 0.3513763749797363 |
+| Sparse | 5000 |  1.1935891660104971 | 0.5499990420066752 |
+| Sparse | 6000 |  1.6568310419970658 | 0.8069550410145894 |
+| Sparse | 7000 |  2.28506062499946 | 1.0927600840223022 |
+| Sparse | 8000 |  3.0466509590041824 | 1.4442387910094112 |
+| Sparse | 9000 |  3.9422053750022314 | 1.849653709010454 |
+| Sparse | 10000 |  4.89116033402388 | 2.2729397079965565 |
 
+| Connected | 50 |  0.009686749981483445 | 0.013444500014884397 |
+| Connected | 100 |  0.06542129200533964 | 0.03400341601809487 |
+| Connected | 500 |  20.69284679100383 | 20.920270415983396 |
+| Connected | 1000 |  0.0806178750062827 | 0.022216750017832965 |
 
+![Timing Graph](timings_graph.jpg)
 
 
 ### Discussion  
 
 * Take a moment to discuss the differences in speeds, what are some major points of difference between the different implementations of Dijkstra's algorithm? 
+
+The heap uses a  Priority Queue to automatically maintain the minimum value. So the smallest node take O(log V).
+And the List version manully scan all node to find out minimum, so it take O(V) for the time.
+This makes the Heap version significantly faster on large graphs.
 * Did the differences go away (mostly) in a certain situation? 
+After we test, when number sides over to 7000, those gap is reduce.
   * If so, what triggered that (think in respect to edges)?
+  It maybe when the side close to n^2, heap version requires frequent push and pop. Instead, it counteracts the advantage of Priority Queue.
 
 
 ## Research
@@ -161,7 +186,18 @@ Build a table based on the timings for both run_timed_test, both with a mostly c
 
 Research the time and space complexity of Dijkstra's algorithm. Between the two different implementations presented, what is the time and space complexity of each?
 
+| Implementation | Time Complexity | Space Complexity |
+|:--------------:|:---------------:|:----------------:|
+| Dijkstra (List) |      O(V²)     |        O(V)      |
+| Dijkstra (Heap) |  O((V + E) log V) |    O(V)       |
+
+
 * In regards to time/space complexity, how did the total number of edges affect the run time of the algorithm?
+
+###  List Version - O(V²)
+The minDistance() function scans all V nodes every iteration, and this run V times total, so it is O(n ^ 2).
+### Heap Version - O((V+E) log V)
+The priority queue always selects the node with the smallest distance, so each node is processed only once. Each push/pop operation takes O(log V), and since each edge triggers at most one push, the total time is O((V+E) log V). 
 
 ## Technical Interview Practice
 
@@ -170,6 +206,7 @@ Take time practicing some of the past modules challenge problems. While you may 
 
 
 ## 📚 Resources
+* Dijkstra's Algorithm - [https://www.geeksforgeeks.org/dsa/dijkstras-shortest-path-algorithm-greedy-algo-7/](https://www.geeksforgeeks.org/dsa/dijkstras-shortest-path-algorithm-greedy-algo-7/)
 * Dijkstra's Algorithm - [https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm) 
 * Dijkstra's Algorithm - [https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/](https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/)
 * Dijkstra's Algorithm Visualization - [https://www.cs.usfca.edu/~galles/visualization/Dijkstra.html](https://www.cs.usfca.edu/~galles/visualization/Dijkstra.html)
